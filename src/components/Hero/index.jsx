@@ -72,43 +72,47 @@ const Hero = () => {
     <>
       <section
         id="Hero"
-        className=" hero h-screen">
-        <div className="p-20 pt-5 flex items-center">
+        className=" hero  w-full md:py-10 xl:py-0">
+        <div className=" lg:p-10 xl:p-20 flex flex-col lg:flex-row items-center w-full">
 
-          <div className="w-[50%]">
-            <div className="h-40">
-              <h1 className="text-[#000000] text-7xl font-extrabold leading-tight">{currentText} <span className="text-6xl font-medium text-[#00A7AC] text-cenetr -ml-4">|</span></h1>
+          <div className="w-full lg:w-[50%] px-5 lg:px-0">
+            <div className="h-20 lg:h-32 xl:h-40 pl-5 lg:pl-0">
+              <h1 className="text-[#000000] text-4xl sm:text-5xl text-center lg:text-left lg:text-6xl xl:text-7xl font-extrabold leading-tight">{currentText} <span className="text-6xl font-medium text-[#00A7AC] text-cenetr -ml-4">|</span></h1>
             </div>
-            <p className="text-xl mt-7">2400+ Peoples are daily search in this portal, 100 user added tender portal!</p>
-            <div className="flex border rounded-md items-center  justify-between w-full bg-white shadow-lg my-10 px-5 py-4 space-x-4">
-              <div className="w-1/2 flex items-center space-x-3 border-r ">
-                <FiSearch className="text-[22px] text-[#00a7ac]" />
-                <input onChange={handleUserSearch} onBlur={handleUserSearch}
-                  type="search" className="focus:outline-none focus:ring-0 w-full border-none bg-transparent" placeholder="Tender Title , Keywords....." />
-              </div>
-              <div className="w-1/2 flex space-x-3 items-center rounded-md">
-                <CiFolderOn className="text-2xl text-[#00a7ac]" />
-                <select name="Category" id="" onChange={handleSelectFilter} className="focus:outline-none focus:ring-0 w-full font-light border-none bg-transparent">
-                  <option value="keyword">Keyword</option>
-                  <option value="tender_id">Tender ID</option>
-                  <option value="department">Department</option>
-                  <option value="state">State</option>
-                </select>
-              </div>
-              <div className="flex items-end justify-end w-1/4 ">
-                <button onClick={handleSearchSubmit}
-                  className="relative h-12 w-40 overflow-hidden border border-[#00a7ac] text-[#00a7ac] rounded-md transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-[#00a7ac] before:duration-500 before:ease-out hover:text-white hover:shadow-[#00a7ac] hover:before:h-40 hover:before:w-40 hover:before:opacity-80">
-                  <span className="relative z-10">Search</span>
-                </button>
+            <p className=" lg:text-lg xl:text-xl mt-10 lg:mt-5 text-center pl-5 lg:pl-0 lg:text-start">2400+ Peoples are daily search in this portal, 100 user added tender portal!</p>
+
+            <div className='flex justify-center items-center lg:items-start lg:justify-start lg:px-0 px-5'>
+              <div className="flex flex-col lg:flex-row w-full border rounded-md items-center justify-between mt-5 bg-white shadow-lg lg:my-10 px-5 py-4 space-y-4 lg:space-y-0 lg:space-x-4">
+                <div className="w-full lg:w-1/2 flex space-x-3 items-center rounded-md">
+                  <CiFolderOn className="text-2xl text-[#00a7ac]" />
+                  <select name="Category" id="" onChange={handleSelectFilter} className="focus:outline-none focus:ring-0 w-full font-light border-none bg-transparent">
+                    <option value="keyword">Keyword</option>
+                    <option value="tender_id">Tender ID</option>
+                    <option value="department">Department</option>
+                    <option value="state">State</option>
+                  </select>
+                </div>
+                <div className="w-full lg:w-1/2 flex items-center space-x-3 border-r ">
+                  <FiSearch className="text-[22px] text-[#00a7ac]" />
+                  <input onChange={handleUserSearch} onBlur={handleUserSearch}
+                    type="search" className="focus:outline-none focus:ring-0 w-full border-none bg-transparent" placeholder="Tender Title , Keywords....." />
+                </div>
+                <div className="flex lg:items-end lg:justify-end w-full lg:w-1/4 ">
+                  <button onClick={handleSearchSubmit}
+                    className="relative h-10 lg:h-12 w-40 overflow-hidden border border-[#00a7ac] text-[#00a7ac] rounded-md transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-[#00a7ac] before:duration-500 before:ease-out hover:text-white hover:shadow-[#00a7ac] hover:before:h-40 hover:before:w-40 hover:before:opacity-80">
+                    <span className="relative z-10">Search</span>
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center space-x-3">
-              <div className="flex items-center">
+
+            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 lg:space-x-3 mt-10 lg:mt-5 w-full">
+              <div className="flex items-center bg-red-500 sm:w-1/3 md:w-1/4 lg:w-1/2 xl:w-1/4">
                 <IoBookmark className="text-[#00a7ac] text-lg" />
                 <h2>Suggested Tag:</h2>
               </div>
-              <div className="flex items-center text-gray-500 text-[12px] space-x-3 mt-2">
+              <div className="flex flex-wrap justify-center items-center lg:justify-start lg:items-start text-gray-500 text-[12px] gap-3">
                 <span onClick={() => handleConstruction('Cunstruction')}
                   className="cursor-pointer hover:text-[#00a7ac]">Cunstruction</span>
                 <span onClick={() => handleConstruction('Medical')}
@@ -119,26 +123,32 @@ const Hero = () => {
                   className="cursor-pointer hover:text-[#00a7ac]">Railways</span>
                 <span onClick={() => handleConstruction('Agriculture')}
                   className="cursor-pointer hover:text-[#00a7ac]">Agriculture</span>
+                <span onClick={() => handleConstruction('Agriculture')}
+                  className="cursor-pointer hover:text-[#00a7ac]">Agriculture</span>
+                <span onClick={() => handleConstruction('Agriculture')}
+                  className="cursor-pointer hover:text-[#00a7ac]">Agriculture</span>
               </div>
             </div>
 
-            <div className="flex relative mt-10">
-              <img src="images/hero/user31.png" alt="" className="rounded-full border-2 border-white absolute left-0" />
-              <img src="images/hero/user32.png" alt="" className="rounded-full border-2 border-white absolute left-8" />
-              <img src="images/hero/user33.png" alt="" className="rounded-full border-2 border-white absolute left-16" />
-              <img src="images/hero/user34.png" alt="" className="rounded-full border-2 border-white absolute left-24" />
-              <img src="images/hero/user35.png" alt="" className="rounded-full border-2 border-white absolute left-32" />
-              <div className="bg-white rounded-full absolute left-40 flex flex-col justify-center items-center h-12 w-12">
-                <h1 className="font-extrabold text-[#00a7ac]">5k</h1>
-                <span className="text-[10px] text-gray-700">Users</span>
+            <div className="flex flex-col mt-10 relative ">
+              <div className='relative'>
+                <img src="images/hero/user31.png" alt="" className="rounded-full border-2 border-white absolute left-0" />
+                <img src="images/hero/user32.png" alt="" className="rounded-full border-2 border-white absolute left-8" />
+                <img src="images/hero/user33.png" alt="" className="rounded-full border-2 border-white absolute left-16" />
+                <img src="images/hero/user34.png" alt="" className="rounded-full border-2 border-white absolute left-24" />
+                <img src="images/hero/user35.png" alt="" className="rounded-full border-2 border-white absolute left-32" />
+                <div className="bg-white rounded-full absolute left-40 flex flex-col justify-center items-center h-12 w-12">
+                  <h1 className="font-extrabold text-[#00a7ac]">5k</h1>
+                  <span className="text-[10px] text-gray-700">Users</span>
+                </div>
               </div>
-              <h1 className="text-lg absolute left-56 mt-3"> People Have Connected With Us!</h1>
+              <h1 className="  xl:text-lg lg:absolute top-10 lg:top-0 left-16 lg:left-56 mt-3"> People Have Connected With Us!</h1>
             </div>
 
 
           </div>
 
-          <div className="w-[50%] p-5 h-auto transition-transform duration-500 transform translate-x-0">
+          <div className=" lg:w-[50%] md:hidden lg:block sm:p-20 lg:p-10 p-5 h-auto transition-transform duration-500 transform translate-x-0">
             <img src="images/hero/hero3-img-with-vec.png" alt="" />
           </div>
 
