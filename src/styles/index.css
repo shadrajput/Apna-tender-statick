@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import 'admin_css/main.css';
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.sticky-menu .navbar-logo {
+  @apply py-2;
+}
+
+.sticky-menu #navbarToggler span {
+  @apply bg-dark dark:bg-white;
+}
+
+.sticky-menu #navbarCollapse li>a {
+  @apply text-dark hover:text-primary hover:opacity-100 dark:text-white;
+}
+
+#navbarCollapse li .ud-menu-scroll.active {
+  @apply opacity-70;
+}
+
+.sticky-menu #navbarCollapse li .ud-menu-scroll.active {
+  @apply text-primary opacity-100 dark:text-white;
+}
+
+.sticky-menu .loginBtn {
+  @apply text-dark hover:text-primary hover:opacity-100 dark:text-white;
+}
+
+.sticky-menu .signUpBtn {
+  @apply bg-primary hover:bg-dark text-white hover:text-white;
+}
+
+.navbarTogglerActive>span:nth-child(1) {
+  @apply top-[7px] rotate-45 transform;
+}
+
+.navbarTogglerActive>span:nth-child(2) {
+  @apply opacity-0;
+}
+
+.navbarTogglerActive>span:nth-child(3) {
+  @apply top-[-8px] rotate-[135deg];
+}
+
+.blog-details,
+.blog-details p {
+  @apply text-body-color dark:text-dark-6 text-base leading-relaxed;
+}
+
+.blog-details p {
+  @apply mb-8;
+}
+
+.blog-details strong {
+  @apply text-dark font-bold dark:text-white;
+}
+
+.blog-details ul {
+  @apply mb-8 list-inside list-disc space-y-3;
+}
+
+.blog-details ol {
+  @apply mb-8 list-inside list-decimal space-y-3;
+}
+
+.blog-details h1 {
+  @apply text-dark mb-8 text-3xl font-bold dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.28];
+}
+
+.blog-details h2 {
+  @apply text-dark mb-8 text-2xl font-bold dark:text-white sm:text-3xl md:text-[35px] md:leading-[1.28];
+}
+
+.blog-details h3 {
+  @apply text-dark mb-6 text-2xl font-bold dark:text-white sm:text-[28px] sm:leading-[40px];
+}
+
+.hero{
+  background-image: url(../../public//images/hero/hero3-bg.31eecca2.png);
+  background-repeat: no-repeat;
+}
+
+.calltoaction{
+  background-image: url(../../public//images/__next_static_media_hero-line-shape.314607e6.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.tenderlist{
+  background-image: url(../../public/images/home2-job-list-bg.37b15a0d.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.process{
+  background-image: url(../../public//images/recenttender/home2-job-list-bg.37b15a0d.png);
+  background-repeat: no-repeat;
+  background-color: #f4f4f4;
+}
+
+.about{
+  background-image: url(../../public//images/recenttender/home2-job-list-bg.37b15a0d.png);
+  background-repeat: no-repeat;
+  background-color: #f4f4f4;
+}
+
+.whychooseus{
+  background-image: url(../../public//images/whychooseus/urban-traffic-with-cityscape.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.recenttender{
+  background-image: url(../../public//images/hero/hero3-bg.31eecca2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+/*Scrollbar width and color of tenders container*/
+  .user-profile-recent-tenders-container, .home-recent-tenders-container {
+    scrollbar-width: thin;
+    scrollbar-color: #00A7AC rgba(249, 250, 251, 0);
+  }
+
+/* .Footer{
+  background-image: url(../../public//images/footer/home2-banner-bg.fc70ffbd.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+} */
+
