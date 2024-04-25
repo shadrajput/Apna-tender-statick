@@ -4,8 +4,6 @@ import { CiFolderOn } from "react-icons/ci";
 import { useGetAllTendersQuery, useGetTenderByKeywordQuery } from '@/services/tender'
 import TenderCard from "../TenderCard/TenderCard.jsx";
 import { MdSearchOff } from "react-icons/md";
-import Button from '../Admin/Button.jsx'
-import Buttons from '../Admin/Buttons.jsx'
 import _ from 'lodash';
 import { useRouter } from 'next/router';
 import indianStatesObjects from '@/redux/slices/State.js';
@@ -170,26 +168,6 @@ console.log(data)
             }
           </div>
 
-          <div className="bg-transparent mt-5">
-            <div className="flex flex-col md:flex-row items-center justify-between py-3 md:py-0">
-              <Buttons>
-                {_.times(pageCount).map((page, index) => (
-
-                  <Button
-                    key={index}
-                    active={index === currentPage}
-                    label={index + 1}
-                    className={index === currentPage ? 'bg-[#00a7ac] text-white' : 'whiteDark'}
-                    small
-                    onClick={() => setCurrentPage(index)}
-                  />
-                ))}
-              </Buttons>
-              <small className="mt-6 md:mt-0">
-                Page {currentPage + 1} of {pageCount}
-              </small>
-            </div>
-          </div>
         </div>
       </div>
     </section>
