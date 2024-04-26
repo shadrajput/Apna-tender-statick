@@ -98,7 +98,7 @@ const Hero = () => {
                   <input onChange={handleUserSearch} onBlur={handleUserSearch}
                     type="search" className="focus:outline-none focus:ring-0 w-full border-none bg-transparent" placeholder="Tender Title , Keywords....." />
                 </div>
-                <div className="flex lg:items-end lg:justify-end w-full lg:w-1/4 ">
+                <div className="flex items-center justify-center lg:items-end lg:justify-end w-full lg:w-1/4 ">
                   <button onClick={handleSearchSubmit}
                     className="relative h-10 lg:h-12 w-40 overflow-hidden border border-[#00a7ac] text-[#00a7ac] rounded-md transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-[#00a7ac] before:duration-500 before:ease-out hover:text-white hover:shadow-[#00a7ac] hover:before:h-40 hover:before:w-40 hover:before:opacity-80">
                     <span className="relative z-10">Search</span>
