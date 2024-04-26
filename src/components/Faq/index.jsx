@@ -47,50 +47,49 @@ const Faq = () => {
 
 
   return (
+    <section className="tenderlist bg-[#ddf2f257] bg-white py-10 xl:px-20 px-5 ">
+    <div className="">
+      <div className="space-y-3">
+        <h2 className="text-3xl xl:text-[45px] font-bold font text-center">Frequently Asked  <span className="text-[#00a7ac] ">Questions</span></h2>
+        <p className="text-center text-sm">Have any questions before you get started? Check out our FAQs below or call us on +91 9723747443</p>
+      </div>
 
-    <section className="tenderlist bg-[#ddf2f257] bg-white py-10 px-20 ">
-      <div className="container">
-        <div className="space-y-3">
-          <h2 className="text-[45px] font-bold font text-center">Frequently Asked  <span className="text-[#00a7ac] ">Questions</span></h2>
-          <p className="text-center">Have any questions before you get started? Check out our FAQs below or call us on +91 9723747443</p>
-        </div>
-
-        <div className="w-ful flex flex-col mt-10 xl:mt-20 lg:px-20 xl:px-32">
-          {
-            Question.map((item, i) => (
-              <div className='mb-8' key={i}>
-                <h2>
-                  <button
-                    className="flex group items-center justify-between shadow-xl bg-white border-b-2 border-[#00a7ac] hover:bg-[#00a7ac] duration-500 px-5 rounded-md w-full text-left font-semibold py-5"
-                    onClick={(e) => { e.preventDefault(); setAccordionOpen(!accordionOpen); setAccordionId(i) }}
-                    aria-expanded={accordionOpen && accordionId == i}
-                    aria-controls={`accordion-text-${i}`}>
-                    <span className='group-hover:text-white duration-300'>{item.question}</span>
-                    <svg className="shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                      <rect y="7" width="16" height="2" rx="1" className={`ttransform origin-center transition duration-200 ease-out ${accordionOpen && accordionId == i && '!rotate-180'}`} />
-                      <rect y="7" width="16" height="2" rx="1" className={`transform origin-center rotate-90  transition duration-200 ease-out ${accordionOpen && accordionId == i && '!rotate-180'}`} />
-                    </svg>
-                  </button>
-                </h2>
-                <div
-                  id={`accordion-text-${i}`}
-                  role="region"
-                  aria-labelledby={`accordion-title-${i}`}
-                  className={`grid text-sm text-black overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen && accordionId == i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
-                >
-                  <div className="overflow-hidden  text-sm md:text-base rounded-b-lg px-5 ">
-                    <p className="py-3">
-                      {item.Answer}
-                    </p>
-                  </div>
+      <div className="w-ful flex flex-col mt-10 xl:mt-20 lg:px-20 xl:px-32">
+        {
+          Question.map((item, i) => (
+            <div className='mb-8' key={i}>
+              <h2>
+                <button
+                  className="flex group items-center justify-between shadow-xl bg-white border-b-2 border-[#00a7ac] hover:bg-[#00a7ac] duration-500 px-5 rounded-md w-full text-left font-semibold py-5"
+                  onClick={(e) => { e.preventDefault(); setAccordionOpen(!accordionOpen); setAccordionId(i) }}
+                  aria-expanded={accordionOpen && accordionId == i}
+                  aria-controls={`accordion-text-${i}`}>
+                  <span className='group-hover:text-white duration-300'>{item.question}</span>
+                  <svg className="shrink-0 ml-8" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+                    <rect y="7" width="16" height="2" rx="1" className={`ttransform origin-center transition duration-200 ease-out ${accordionOpen && accordionId == i && '!rotate-180'}`} />
+                    <rect y="7" width="16" height="2" rx="1" className={`transform origin-center rotate-90  transition duration-200 ease-out ${accordionOpen && accordionId == i && '!rotate-180'}`} />
+                  </svg>
+                </button>
+              </h2>
+              <div
+                id={`accordion-text-${i}`}
+                role="region"
+                aria-labelledby={`accordion-title-${i}`}
+                className={`grid text-sm text-black overflow-hidden transition-all duration-300 ease-in-out ${accordionOpen && accordionId == i ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+              >
+                <div className="overflow-hidden  text-sm md:text-base rounded-b-lg px-5 ">
+                  <p className="py-3">
+                    {item.Answer}
+                  </p>
                 </div>
               </div>
-            ))
-          }
-        </div>
-
+            </div>
+          ))
+        }
       </div>
-    </section>
+
+    </div>
+  </section>
   );
 };
 

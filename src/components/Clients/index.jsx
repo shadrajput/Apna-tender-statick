@@ -13,9 +13,10 @@ const Clients = () => {
     cssEase: ""
   };
 
+
   return (
     <section className="pt-7 xl:pt-20 pb-5">
-      <h1 className="text-center text-slate-400">Collaborating with 3200+internationally renowned companies.</h1>
+      <h1 className="text-center text-slate-400 px-5">Collaborating with 3200+internationally renowned companies.</h1>
       <div className="relative">
         <div className="blur-lg absolute top-0  bg-white left-0 z-50  h-full w-12 sm:w-20 xl:w-40"></div>
         <div className="py-10 overflow-hidden mx-3 sm:mx-6 xl:mx-20 ">

@@ -3,6 +3,22 @@ import { IoBookmark } from "react-icons/io5";
 import { FiSearch } from "react-icons/fi";
 import { CiFolderOn } from "react-icons/ci";
 import { useRouter } from 'next/router';
+import Slider from "react-slick";
+
+const Images = [
+  {
+    image: "images/hero/hero3-img-with-vec.png",
+  },
+  {
+    image: "/images/testimonials/Sales-Letter-Testimonial-2.webp",
+  },
+  {
+    image: "/images/testimonials/Sales-Letter-Testimonial-1.webp",
+  },
+  {
+    image: "/images/testimonials/Sales-Letter-Testimonial-2.webp",
+  },
+];
 
 const Hero = () => {
   const router = useRouter()
@@ -12,6 +28,17 @@ const Hero = () => {
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [typing, setTyping] = useState(true);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    cssEase: "linear"
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,9 +97,9 @@ const Hero = () => {
 
   return (
     <>
-      <section
+       <section
         id="Hero"
-        className=" hero  w-full md:py-10 xl:py-0">
+        className="hero w-full py-10 xl:py-0">
         <div className=" lg:p-10 xl:p-20 flex flex-col lg:flex-row items-center w-full">
 
           <div className="w-full lg:w-[50%] px-5 lg:px-0">
@@ -108,7 +135,7 @@ const Hero = () => {
 
 
             <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 lg:space-x-3 mt-10 lg:mt-5 w-full">
-              <div className="flex items-center bg-red-500 sm:w-1/3 md:w-1/4 lg:w-1/2 xl:w-1/4">
+              <div className="flex items-center sm:w-1/3 md:w-1/4 lg:w-1/2 xl:w-1/4">
                 <IoBookmark className="text-[#00a7ac] text-lg" />
                 <h2>Suggested Tag:</h2>
               </div>
@@ -148,8 +175,13 @@ const Hero = () => {
 
           </div>
 
-          <div className=" lg:w-[50%] md:hidden lg:block sm:p-20 lg:p-10 p-5 h-auto transition-transform duration-500 transform translate-x-0">
-            <img src="images/hero/hero3-img-with-vec.png" alt="" />
+          <div className="w-[45%] p-5 h-auto transition-transform duration-500 transform translate-x-0">
+
+            <Slider {...settings}>
+              {Images.map((data) => (
+                <img src={data.image} alt="" />
+              ))}
+            </Slider>
           </div>
 
         </div>

@@ -48,47 +48,71 @@ const testimonialData = [
 const Testimonials = () => {
   const settings = {
     dots: true,
-    infinite: true,
-    speed: 1000,
+    infinite: false,
+    speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    cssEase: "linear"
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
-    <section className="py-20 px-20 tenderlist">
-      <div className="container px-4 flex items-start ">
+    <section className=" py-10 px-5 xl:py-20 xl:px-20 tenderlist">
+    
+    <div className="flex flex-col md:flex-row items-start ">
 
-        <div className="w-1/2 space-y-3">
-          <h2 className="text-[40px] leading-tight font-bold font">What <span className="text-[#00a7ac]">Business owners</span> <br /> talking about us</h2>
-          <img src="images/testimonials/googlereview.jpg" alt="" className="w-[30%]" />
-        </div>
-
-        <div className="w-1/2 space-y-10">
-          <p>It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.
-            It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.</p>
-          <div className="flex items-center space-x-5">
-            <img  src="images/testimonials/instagram-logo-1494D6FE63-seeklogo.com.png" alt="" className="w-8 cursor-pointer hover:scale-105 duration-300" />
-            <img  src="images/testimonials/facebook.jpg" alt="" className="w-8 cursor-pointer hover:scale-105 duration-300" />
-            <img  src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-8 cursor-pointer hover:scale-105 duration-300" />
-          </div>
-        </div>
-
-
-
+      <div className="w-full xl:w-1/2 space-y-3">
+        <h2 className="text-3xl xl:text-[40px] leading-tight font-bold font">What <span className="text-[#00a7ac]">Business owners</span> <br /> talking about us</h2>
+        <img src="images/testimonials/googlereview.jpg" alt="" className="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 xl:w-[30%]" />
       </div>
-      <div className="mt-20">
-        <div className="">
-          <Slider {...settings}>
-            {testimonialData.map((testimonial, index) => (
-              <SingleTestimonial key={index} testimonial={testimonial} />
-            ))}
-          </Slider>
+
+      <div className="w-full xl:w-1/2 space-y-5 xl:space-y-10 mt-3">
+        <p className="text-sm">It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.
+          It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.</p>
+        <div className="flex items-center space-x-5">
+          <img  src="images/testimonials/instagram-logo-1494D6FE63-seeklogo.com.png" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+          <img  src="images/testimonials/facebook.jpg" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+          <img  src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
         </div>
       </div>
-    </section>
+
+    </div>
+
+    <div className="mt-10 xl:mt-20">
+      <div className="">
+        <Slider {...settings}>
+          {testimonialData.map((testimonial, index) => (
+            <SingleTestimonial key={index} testimonial={testimonial} />
+          ))}
+        </Slider>
+      </div>
+    </div>
+  </section>
   );
 };
 

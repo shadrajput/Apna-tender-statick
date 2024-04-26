@@ -9,37 +9,37 @@ import { VscDebugDisconnect } from "react-icons/vsc";
 const WhyChooseUs = () => {
   return (
     <>
-      <section className="whychooseus h-[400px]">
-        <div className="bg-[#000000b7] w-full h-full  relative">
+       <section className="whychooseus h-full xl:h-[400px]">
+        <div className="bg-[#000000b7] w-full h-full relative">
 
-          <div className="mx-20 flex flex-col justify-center items-center h-full">
-            <h1 className="text-white text-[45px] font-bold">Why Choose Us</h1>
-            <p className="text-white text-center w-2/3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis commodi nam aspernatur provident amet. Voluptatem itaque alias quo et natus, sapiente perferendis voluptatibus odio repudiandae animi repellat at. Eum, illum.</p>
+          <div className="xl:mx-20 flex flex-col justify-center items-center h-full px-5 py-10">
+            <h1 className="text-white mb-3 text-3xl xl:text-[45px] font-bold">Why Choose Us</h1>
+            <p className="text-white text-center text-sm lg:text-base md:w-2/3 xl:w-1/2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis commodi nam aspernatur provident amet.</p>
 
-            <div className=" grid grid-cols-6 mt-14 gap-10 mx-20">
+            <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 mt-14 gap-5 xl:gap-10 xl:mx-20">
               <div className="flex items-center justify-center flex-col space-y-3">
-                <IoDocumentLockOutline className="text-5xl text-white" />
-                <h1 className="text-white text-lg  text-center font-semibold">Data Security Ensured</h1>
+                <IoDocumentLockOutline className="text-4xl xl:text-5xl text-white" />
+                <h1 className="text-white xl:text-lg text-center font-semibold">Data Security Ensured</h1>
               </div>
               <div className="flex items-center justify-center flex-col space-y-3">
-                <AiOutlineSolution className="text-5xl text-white" />
-                <h1 className="text-white text-lg  text-center font-semibold">End to End Tender Solution</h1>
+                <AiOutlineSolution className="text-4xl xl:text-5xl text-white" />
+                <h1 className="text-white xl:text-lg text-center font-semibold">End to End Tender Solution</h1>
               </div>
               <div className="flex items-center justify-center flex-col space-y-3">
-                <FaRegHandshake className="text-5xl text-white" />
-                <h1 className="text-white text-lg  text-center font-semibold">Data Security Ensured</h1>
+                <FaRegHandshake className="text-4xl xl:text-5xl text-white" />
+                <h1 className="text-white xl:text-lg text-center font-semibold">Data Security Ensured</h1>
               </div>
               <div className="flex items-center justify-center flex-col space-y-3">
-                <PiUsersThreeLight className="text-5xl text-white" />
-                <h1 className="text-white text-lg  text-center font-semibold">Experianced Team Memders</h1>
+                <PiUsersThreeLight className="text-4xl xl:text-5xl text-white" />
+                <h1 className="text-white xl:text-lg text-center font-semibold">Experianced Team Memders</h1>
               </div>
               <div className="flex items-center justify-center flex-col space-y-3">
-                <VscDebugDisconnect className="text-5xl text-white" />
-                <h1 className="text-white text-lg  text-center font-semibold">Connect With GOVT</h1>
+                <VscDebugDisconnect className="text-4xl xl:text-5xl text-white" />
+                <h1 className="text-white xl:text-lg text-center font-semibold">Connect With GOVT</h1>
               </div>
               <div className="flex items-center justify-center flex-col space-y-3">
-                <IoDocumentLockOutline className="text-5xl text-white" />
-                <h1 className="text-white text-lg  text-center font-semibold">Data Security Ensured</h1>
+                <IoDocumentLockOutline className="text-4xl xl:text-5xl text-white" />
+                <h1 className="text-white xl:text-lg text-center font-semibold">Data Security Ensured</h1>
               </div>
             </div>
           </div>
