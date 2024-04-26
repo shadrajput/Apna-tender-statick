@@ -5,7 +5,6 @@ import { CiFolderOn } from "react-icons/ci";
 import { useRouter } from 'next/router';
 import Slider from "react-slick";
 
-
 const Hero = () => {
   const router = useRouter()
   const [search, setSearch] = React.useState("");
@@ -77,14 +76,14 @@ const Hero = () => {
         className="hero w-full py-10 xl:py-0">
         <div className=" lg:p-10 xl:p-20 flex flex-col lg:flex-row items-center w-full">
 
-          <div className="w-full lg:w-[50%] px-5 lg:px-0">
+        <div className="w-full lg:w-[50%] lg:px-0">
             <div className="h-20 lg:h-32 xl:h-40 pl-5 lg:pl-0">
-              <h1 className="text-[#000000] text-4xl sm:text-5xl text-center lg:text-left lg:text-6xl xl:text-7xl font-extrabold leading-tight">{currentText} <span className="text-6xl font-medium text-[#00A7AC] text-cenetr -ml-4">|</span></h1>
+              <h1 className="text-[#000000] text-4xl sm:text-5xl text-center lg:text-left lg:text-6xl xl:text-7xl font-extrabold leading-tight">{currentText} <span className="lg:text-6xl font-medium text-[#00A7AC] text-center -ml-4">|</span></h1>
             </div>
             <p className=" lg:text-lg xl:text-xl mt-10 lg:mt-5 text-center pl-5 lg:pl-0 lg:text-start">2400+ Peoples are daily search in this portal, 100 user added tender portal!</p>
 
-            <div className='flex justify-center items-center lg:items-start lg:justify-start lg:px-0 px-5'>
-              <div className="flex flex-col lg:flex-row w-full border rounded-md items-center justify-between mt-5 bg-white shadow-lg lg:my-10 px-5 py-4 space-y-4 lg:space-y-0 lg:space-x-4">
+            <div className='flex justify-center items-center lg:items-start lg:justify-start mt-10 lg:mt-0'>
+              <div className="flex flex-col lg:flex-row w-full border rounded-md items-center justify-between bg-white shadow-lg lg:my-10 px-5 py-4 space-y-4 lg:space-y-0 lg:space-x-4">
                 <div className="w-full lg:w-1/2 flex space-x-3 items-center rounded-md">
                   <CiFolderOn className="text-2xl text-[#00a7ac]" />
                   <select name="Category" id="" onChange={handleSelectFilter} className="focus:outline-none focus:ring-0 w-full font-light border-none bg-transparent">
@@ -109,12 +108,12 @@ const Hero = () => {
             </div>
 
 
-            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3 lg:space-x-3 mt-10 lg:mt-5 w-full">
-              <div className="flex items-center sm:w-1/3 md:w-1/4 lg:w-1/2 xl:w-1/4">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start md:items-center xl:items-start space-y-3 sm:space-y-0 sm:px-5 sm:space-x-3 lg:space-x-3 mt-10 lg:mt-5 w-full">
+              <div className="flex items-center sm:w-40 lg:w-72 xl:w-40">
                 <IoBookmark className="text-[#00a7ac] text-lg" />
                 <h2>Suggested Tag:</h2>
               </div>
-              <div className="flex flex-wrap justify-center items-center lg:justify-start lg:items-start text-gray-500 text-[12px] gap-3">
+              <div className="flex flex-wrap justify-center items-center sm:justify-start sm:items-start text-gray-500 text-[12px] gap-3">
                 <span onClick={() => handleConstruction('Cunstruction')}
                   className="cursor-pointer hover:text-[#00a7ac]">Cunstruction</span>
                 <span onClick={() => handleConstruction('Medical')}
@@ -132,25 +131,15 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col mt-10 relative ">
-              <div className='relative'>
-                <img src="images/hero/user31.png" alt="" className="rounded-full border-2 border-white absolute left-0" />
-                <img src="images/hero/user32.png" alt="" className="rounded-full border-2 border-white absolute left-8" />
-                <img src="images/hero/user33.png" alt="" className="rounded-full border-2 border-white absolute left-16" />
-                <img src="images/hero/user34.png" alt="" className="rounded-full border-2 border-white absolute left-24" />
-                <img src="images/hero/user35.png" alt="" className="rounded-full border-2 border-white absolute left-32" />
-                <div className="bg-white rounded-full absolute left-40 flex flex-col justify-center items-center h-12 w-12">
-                  <h1 className="font-extrabold text-[#00a7ac]">5k</h1>
-                  <span className="text-[10px] text-gray-700">Users</span>
-                </div>
+            <div className="flex flex-col items-center lg:items-start xl:flex-row my-10 w-full ">
+              <div className='items-center flex justify-center lg:justify-start lg:items-start w-44 sm:w-52 '>
+                <img src="images/hero/herouser.png" alt="" className="w-full" />
               </div>
-              <h1 className="  xl:text-lg lg:absolute top-10 lg:top-0 left-16 lg:left-56 mt-3"> People Have Connected With Us!</h1>
+              <h1 className="text-center lg:text-start"><span className='font-semibold text-[#00a7ac] text-xl '>5k+</span> People Have Connected With Us!</h1>
             </div>
-
-
           </div>
 
-          <div className="w-[45%] p-5 h-auto transition-transform duration-500 transform translate-x-0">
+          <div className="w-full lg:w-[50%] p-5 h-auto transition-transform duration-500 transform translate-x-0">
             <img src="images/hero/hero3-img-with-vec.png" alt="" />
           </div>
 
