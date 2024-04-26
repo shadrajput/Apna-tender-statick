@@ -41,15 +41,15 @@ const Contact = () => {
     });
 
   return (
-    <section id="contact" className="relative py-20 md:pt-[80px] md:pb-0 px-20">
+    <section id="contact" className="relative py-10 lg:py-20 md:pt-[80px] md:pb-0 lg:px-20">
       <div className="absolute left-0 top-0 -z-[1] h-full w-full dark:bg-dark"></div>
       <div className="absolute left-0 top-0 -z-[1] h-1/2 w-full bg-[#E9F9FF] dark:bg-dark-700 lg:h-[45%] xl:h-1/2"></div>
-      <div className="container px-4">
+      <div className="container px-4 ">
         <div className="-mx-4 flex flex-wrap items-center">
-          <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
+          <div className="w-full px-4 sm:px-10 lg:w-7/12 xl:w-8/12">
             <div className="ud-contact-content-wrapper">
               <div className="ud-contact-title mb-12 lg:mb-[150px]">
-                <h2 className="max-w-[260px] text-[75px] font-bold leading-[1.14] text-dark dark:text-white">
+                <h2 className="max-w-[260px] text-5xl lg:text-[75px] font-bold leading-[1.14] text-dark dark:text-white">
                   Have a Question?
                 </h2>
                 <span className="my-6 block text-base font-medium text-dark dark:text-white">
@@ -59,7 +59,7 @@ const Contact = () => {
                   Do not hesitate to contact us and we will answer you quickly.
                 </span>
               </div>
-              <div className="mb-12 flex  justify-start lg:mb-0 space-x-10">
+              <div className="mb-12 flex flex-col space-y-10 justify-start lg:mb-0 md:space-x-10 lg:space-x-0">
                 <div className="">
                   <div className="mb-8 flex w-[300px] max-w-full">
                     <div className="mr-6 text-[32px] text-[#156C83]">
@@ -107,11 +107,11 @@ const Contact = () => {
 
           <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
             <div
-              className="wow fadeInUp rounded-lg bg-white px-8 py-10 shadow-testimonial dark:bg-dark-2 dark:shadow-none sm:px-10 sm:py-12 md:p-[60px] lg:p-10 lg:px-10 lg:py-12 2xl:p-[60px]"
+              className="wow fadeInUp rounded-lg bg-white px-0 py-10 shadow-testimonial dark:bg-dark-2 dark:shadow-none sm:px-10 sm:py-12 md:p-[60px] lg:p-10 lg:px-10 lg:py-12 2xl:p-[60px]"
               data-wow-delay=".2s
               "
             >
-              <h3 className="mb-8 text-2xl font-semibold text-dark dark:text-white md:text-[28px] md:leading-[1.42]">
+              <h3 className="mb-8 text-2xl font-semibold text-[#00a7ac] md:text-[28px] md:leading-[1.42]">
                 Send us a Message
               </h3>
 

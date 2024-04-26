@@ -27,8 +27,8 @@ export default function Home() {
       <RecentTender />
       <ProjectsNumber />
       <CallToAction />
-      <WhyChooseUs />
       <Service />
+      <WhyChooseUs />
       <Process />
       <Testimonials />
       <Faq />

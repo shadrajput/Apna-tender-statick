@@ -97,22 +97,23 @@ console.log(data)
   return (
     <section className="">
       <div className="tenderlist w-full">
-        <div className="flex tenderlist flex-col  w-full bg-[#00a6ac5a] py-20 px-20">
+      <div className="flex tenderlist flex-col  w-full bg-[#00a6ac5a] py-10 xl:py-20 px-5 xl:px-20">
           <div className="space-y-2">
-            <h1 className="text-5xl font-bold text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
               Find Tenders
             </h1>
-            <p className="text-slate-900 text-center">Search your business opportunity through {allTenders.length} tenders</p>
+            <p className="text-slate-900 text-center text-sm lg:text-base">Search your business opportunity through {allTenders.length} tenders</p>
           </div>
 
-          <div className="flex border relative rounded-md items-center justify-between w-full bg-white shadow-lg mt-10 px-5 py-6 space-x-4">
-            <div className="w-1/2 flex items-center space-x-3 border-r  ">
+          <div className="flex flex-col md:flex-row border rounded-md items-center justify-between w-full bg-white shadow-lg mt-5 lg:mt-10 px-5 space-y-4 space-x-0 md:space-y-0 
+           py-6 md:space-x-4">
+            <div className="lg:w-1/2 w-full flex items-center space-x-3 border-r  ">
               <FiSearch
                 className="text-[22px] text-[#00a7ac]" />
               <input onChange={handleUserSearch} onBlur={handleUserSearch}
                 type="search" value={input} className="!ring-0 w-full border-none bg-transparent" placeholder="Tender Title , Keywords....." />
             </div>
-            <div className="w-1/2 flex space-x-3 items-center rounded-md  px-3">
+            <div className="lg:w-1/2 w-full flex space-x-3 items-center rounded-md lg:px-3">
               <CiFolderOn className="text-2xl text-[#00a7ac]" />
               <select name="Category" value={filter} id="" onChange={handleSelectFilter} className="!ring-0 w-full font-light border-none bg-transparent">
                 <option value="keyword">Keyword</option>
@@ -121,12 +122,11 @@ console.log(data)
                 <option value="state">State</option>
               </select>
             </div>
-            <div className="flex items-end justify-end w-1/4 ">
+            <div className="flex items-end justify-end md:w-1/4 ">
               <button onClick={handleSearchSubmit}
                 className="relative h-12 w-52 overflow-hidden border border-[#00a7ac] text-[#00a7ac] rounded-md transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-[#00a7ac] before:duration-500 before:ease-out hover:text-white hover:shadow-[#00a7ac] hover:before:h-40 hover:before:w-52 hover:before:opacity-80">
                 <span className="relative z-10">Search</span>
               </button>
-
             </div>
 
             {
@@ -147,9 +147,7 @@ console.log(data)
                 :
                 null
             }
-
           </div>
-
         </div>
 
         <div className="bg-[#ddf2f22e] tenderlist py-20 px-20">

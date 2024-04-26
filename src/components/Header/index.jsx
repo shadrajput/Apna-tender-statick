@@ -140,25 +140,9 @@ const Header = () => {
     <>
 
       <div className="h-10 bg-[#00a7ac] flex justify-between items-center w-full px-3 lg:px-20 py-6 ">
-        <div className="md:space-x-5 flex justify-between md:justify-start w-full">
+        <div className="md:space-x-5 flex justify-between w-full">
           <span className="flex items-center gap-1 text-sm font-medium text-white"><MdEmail className="text-base" /> care@apnatender.com</span>
           <span className="flex items-center gap-1 text-sm font-medium text-white"><IoCallSharp className="text-base" /> +91 97237 47443</span>
-        </div>
-
-        <div className="hidden md:block flex items-center space-x-5">
-          {token ? (
-            <div onClick={handleLogout}
-              className="flex items-center space-x-1 group hover:cursor-pointer">
-              <TbLogout2 className="text-xl text-white group-hover:-translate-x-1 duration-500" />
-              <span className="group-hover:underline duration-500 text-white">Logout</span>
-            </div>
-          ) : (
-            <Link
-              href="/auth/signin" className="flex items-center space-x-1 group hover:cursor-pointer">
-              <span className="group-hover:underline text-white duration-500">Login</span>
-              <TbLogin2 className="text-xl group-hover:translate-x-1 duration-500 text-white" />
-            </Link>
-          )}
         </div>
       </div>
 
