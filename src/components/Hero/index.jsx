@@ -5,20 +5,6 @@ import { CiFolderOn } from "react-icons/ci";
 import { useRouter } from 'next/router';
 import Slider from "react-slick";
 
-const Images = [
-  {
-    image: "images/hero/hero3-img-with-vec.png",
-  },
-  {
-    image: "/images/testimonials/Sales-Letter-Testimonial-2.webp",
-  },
-  {
-    image: "/images/testimonials/Sales-Letter-Testimonial-1.webp",
-  },
-  {
-    image: "/images/testimonials/Sales-Letter-Testimonial-2.webp",
-  },
-];
 
 const Hero = () => {
   const router = useRouter()
@@ -28,17 +14,6 @@ const Hero = () => {
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [typing, setTyping] = useState(true);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    cssEase: "linear"
-  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -85,7 +60,7 @@ const Hero = () => {
   const handleSelectFilter = (e) => {
     setFilter(e.target.value)
   }
-  
+
   const handleConstruction = (value) => {
     router.push({
       pathname: '/tenders',
@@ -97,7 +72,7 @@ const Hero = () => {
 
   return (
     <>
-       <section
+      <section
         id="Hero"
         className="hero w-full py-10 xl:py-0">
         <div className=" lg:p-10 xl:p-20 flex flex-col lg:flex-row items-center w-full">
@@ -176,12 +151,7 @@ const Hero = () => {
           </div>
 
           <div className="w-[45%] p-5 h-auto transition-transform duration-500 transform translate-x-0">
-
-            <Slider {...settings}>
-              {Images.map((data) => (
-                <img src={data.image} alt="" />
-              ))}
-            </Slider>
+            <img src="images/hero/hero3-img-with-vec.png" alt="" />
           </div>
 
         </div>
