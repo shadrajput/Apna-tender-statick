@@ -84,8 +84,8 @@ function InquiryTenderModel({ showModal, handleShowModal, id }) {
                 <Modal.Description>
                     <div className="px-4 mt-5 ">
                         <form action="" onSubmit={handleSubmit}>
-                            <div className="space-y-7">
-                                <div className="flex items-center space-x-5">
+                        <div className=" space-y-5 lg:space-y-7">
+                                <div className="flex flex-col space-x-0 space-y-5 items-center lg:space-x-5">
                                     <div className="flex flex-col w-full space-y-3">
                                         <label htmlFor="Mobile Number">Name*</label>
                                         <input
@@ -115,7 +115,7 @@ function InquiryTenderModel({ showModal, handleShowModal, id }) {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="flex items-center space-x-5">
+                                <div className="flex flex-col space-x-0 space-y-5 items-center lg:space-x-5">
                                     <div className="flex flex-col w-full space-y-3">
                                         <label htmlFor="Mobile Number">Email*</label>
                                         <input type="text"
@@ -145,7 +145,7 @@ function InquiryTenderModel({ showModal, handleShowModal, id }) {
                                         </span>
                                     </div>
                                 </div>
-                                <div className="flex items-center space-x-5">
+                                <div className="flex space-x-0 space-y-5 items-center lg:space-x-5">
                                     <div className="flex flex-col w-full space-y-3">
                                         <label htmlFor="Message">Message</label>
                                         <input type="textarea"

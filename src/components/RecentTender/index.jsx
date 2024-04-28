@@ -13,8 +13,8 @@ const RecentTender = () => {
   let isError = false;
 
   return (
-    <section className=" recenttender py-10 px-5 lg:p-20 mt-10 bg-[#f8f8f8] overflow-hidden" >
-    <div className=" flex flex-col sm:flex-row items-start  justify-start sm:justify-between w-full space-y-2">
+    <section className=" recenttender py-10 px-2 lg:p-20 mt-10 bg-[#f8f8f8] overflow-hidden" >
+    <div className=" flex flex-col px-5 sm:flex-row items-start justify-start sm:justify-between w-full space-y-2">
       <div className="space-y-3">
         <h2 className=" text-3xl lg:text-4xl font-bold font">Recent <span className="text-[#00a7ac]">Tender</span> List</h2>
         <p className='text-sm sm:w-2/3'>To choose your trending job dream & to make future bright.</p>
@@ -28,7 +28,7 @@ const RecentTender = () => {
     </div>
 
 
-    <div className="mt-10 overflow-y-scroll h-[600px] py-10 px-5 bg-white rounded-md home-recent-tenders-container">
+    <div className="mt-10 overflow-y-scroll h-[600px] py-10 px-5 xl:px-7 bg-white rounded-md home-recent-tenders-container">
       {
         allLatestTenders.length > 0 ?
           allLatestTenders.map((Details, index) => (

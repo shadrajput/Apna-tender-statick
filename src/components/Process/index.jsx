@@ -7,8 +7,8 @@ import { BsClipboard2Check } from "react-icons/bs";
 const Process = () => {
   return (
     <section
-    id="process"
-    className="process xl:h-screen flex justify-center items-center py-10 xl:py-0">
+    id=""
+    className="tenderlist xl:h-screen flex justify-center items-center py-10 xl:py-0">
       <div className="items-center w-full ">
         <div className="space-y-3 text-center px-5">
           <h2 className="text-3xl xl:text-[45px] font-bold font">Our Work <span className="text-[#00a7ac]">Process</span></h2>

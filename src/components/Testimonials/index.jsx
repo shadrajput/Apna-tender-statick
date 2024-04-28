@@ -82,7 +82,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className=" py-10 px-5 xl:py-20 xl:px-20 tenderlist">
+    <section className="hero py-10 px-5 xl:py-20 xl:px-20 ">
     
     <div className="flex flex-col md:flex-row items-start ">
 

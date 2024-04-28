@@ -25,12 +25,10 @@ export default function Home() {
       <Clients />
       <Category />
       <RecentTender />
-      <ProjectsNumber />
       <CallToAction />
-      <Service />
-      <WhyChooseUs />
       <Process />
       <Testimonials />
+      <Service />
       <Faq />
       <ScrollUp />
     </main>

@@ -230,19 +230,26 @@ const Header = () => {
             </button>
             <nav
               id="navbarCollapse"
-              className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark-2 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:dark:bg-transparent ${navbarOpen
-                ? "visibility top-full opacity-100"
-                : "invisible top-[120%] opacity-0"
+              className={`navbar absolute -top-12 z-30 w-[300px] h-screen lg:h-fit bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark-2 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:dark:bg-transparent ${navbarOpen
+                ? "visibility left-0 opacity-100"
+                : "invisible -left-[120%] opacity-0"
                 }`}
             >
-              <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
+              <div className="lg:hidden">
+                <img
+                  src="/images/logo/Tplogo.png"
+                  alt="logo"
+                  className="header-logo w-36 sm:w-40"
+                />
+              </div>
+              <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12 my-7">
                 {menuData.map((menuItem, index) =>
                   menuItem.path ? (
                     <li key={index} className="group relative">
                       <Link
                         scroll={false}
                         href={menuItem.path}
-                        className={`ud-menu-scroll flex py-2 text-base font-medium hover:text-[#00a7ac] lg:inline-flex lg:px-0 lg:py-0 ${pathUrl === menuItem?.path && "text-[#00a7ac] border-b-[3px] border-[#00a7ac]  font-semibold"
+                        className={`ud-menu-scroll flex py-3 text-base font-medium hover:text-[#00a7ac] lg:inline-flex lg:px-0 lg:py-0 ${pathUrl === menuItem?.path && "text-[#00a7ac] border-b-[3px] border-[#00a7ac]  font-semibold"
                           }`}
                       >
                         {menuItem.title}
@@ -325,6 +332,30 @@ const Header = () => {
                   )
                 )}
               </ul>
+
+              <div className="space-y-3 lg:hidden">
+                <Link href="/auth/signin">
+                  <button className="border rounded-md px-10 py-2 w-full font-medium">
+                    Login
+                  </button>
+                </Link>
+                <button onClick={() => setInquiry(true)}
+                  className="rounded-md px-10 w-full  text-white font-medium border-[#00a7ac] py-2 bg-[#00a7ac] border-2 hover:bg-transparent hover:border-[#00a7ac] hover:text-[#00a7ac] duration-500">
+                  Get a Consultation
+                </button>
+              </div>
+
+              <div className="lg:hidden mt-10 flex items-center justify-center space-x-5">
+                <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
+                  <FaInstagram className="text-white text-lg" />
+                </div>
+                <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
+                  <FaLinkedinIn className="text-white text-lg" />
+                </div>
+                <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
+                  <FaFacebookSquare className="text-white text-lg" />
+                </div>
+              </div>
             </nav>
           </div>
 
@@ -440,11 +471,16 @@ const Header = () => {
                 </div>
               </>
             ) : (
-              <div>
+              <div className="lg:flex items-center space-x-3 hidden ">
                 <button onClick={() => setInquiry(true)}
-                  className="rounded-md px-6 hidden lg:block text-white font-semibold border-[#00a7ac] py-[10px] bg-[#00a7ac] border-2 hover:bg-transparent hover:border-[#00a7ac] hover:text-[#00a7ac] duration-500">
-                  Get a Free Consultation
+                  className="rounded-md px-5 xl:px-10  text-white font-semibold border-[#00a7ac] py-2 bg-[#00a7ac] border-2 hover:bg-transparent hover:border-[#00a7ac] hover:text-[#00a7ac] duration-500">
+                  Get a Consultation
                 </button>
+                <Link href="/auth/signin">
+                  <button className="border hover:text-[#00a7ac] rounded-md px-10 py-2 w-full font-medium">
+                    Login
+                  </button>
+                </Link>
               </div>
             )}
           </div>
