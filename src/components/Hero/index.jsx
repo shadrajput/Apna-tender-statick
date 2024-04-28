@@ -16,6 +16,7 @@ const Hero = () => {
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [typing, setTyping] = useState(true);
+  const [counterOn, setCounterOn] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
