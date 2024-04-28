@@ -100,17 +100,14 @@ const Testimonials = () => {
             <img  src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
           </div>
         </div>
-
       </div>
 
       <div className="mt-10 xl:mt-20">
-        <div className="">
           <Slider {...settings}>
             {testimonialData.map((testimonial, index) => (
               <SingleTestimonial key={index} testimonial={testimonial} />
             ))}
           </Slider>
-        </div>
       </div>
     </section>
   );

@@ -19,7 +19,7 @@ import moment from 'moment';
 import { BiLogoGmail } from "react-icons/bi";
 
 const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCount }) => {
-    console.log(isRecent)
+
     const { id, apna_tender_id, description, estimated_value, state, title, closing_date, opening_date, department, isBookmarked, isApplied, is_recent } = Data;
 
     let tender_id = id

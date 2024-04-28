@@ -291,7 +291,15 @@ const TenderList = () => {
   const [filter, setFilter] = React.useState(router.query.filter ? router.query.filter : 'keyword');
   const [finalsearch, setFinalSearch] = React.useState("");
   const [finalfilter, setFinalFilter] = React.useState("");
-  const [input , setInput] = React.useState(router.query.search ? router.query.search : "")
+  const [input, setInput] = React.useState(router.query.search ? router.query.search : "")
+  const [searchQuery, setSearchQuery] = React.useState('');
+
+  // Filter the tender list based on the search query
+  const filteredTenders = allTenders.filter((tender) =>
+    tender.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    tender.department.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const Keywords = useGetTenderByKeywordQuery({
     search: search,
   });
@@ -302,33 +310,34 @@ const TenderList = () => {
     }
   }, [Keywords])
 
-
   const { data, isLoading, isError } = useGetAllTendersQuery({
     pageNo: pageNo,
     search: finalsearch,
     filter: finalfilter,
   });
 
-  
+
   const handleUserSearch = (e) => {
+    setSearchQuery(e.target.value);
+
     setInput(e.target.value)
 
-    if(e.target.value == ""){
-      setFinalSearch("")
-    }
+    // if (e.target.value == "") {
+    //   setFinalSearch("")
+    // }
 
-    if (filter === "keyword") {
-      setSearch(() => e.target.value)
-    }
+    // if (filter === "keyword") {
+    //   setSearch(() => e.target.value)
+    // }
 
-    if (filter === "state") {
-      const regex = new RegExp(e.target.value, 'i');
+    // if (filter === "state") {
+    //   const regex = new RegExp(e.target.value, 'i');
 
-      // Filter the states array based on the regular expression
-      const results = indianStatesObjects.filter(state => regex.test(state.title));
-      setAllKeywords(results)
-      console.log(AllKeyWods)
-    }
+    //   // Filter the states array based on the regular expression
+    //   const results = indianStatesObjects.filter(state => regex.test(state.title));
+    //   setAllKeywords(results)
+    //   console.log(AllKeyWods)
+    // }
   }
 
   React.useEffect(() => {
@@ -347,7 +356,7 @@ const TenderList = () => {
   const handleSelectFilter = (e) => {
     setFilter(e.target.value)
     setAllKeywords([])
-  } 
+  }
 
   React.useEffect(() => {
     if (data) {
@@ -366,7 +375,7 @@ const TenderList = () => {
   return (
     <section className="">
       <div className="tenderlist w-full">
-      <div className="flex tenderlist flex-col  w-full bg-[#00a6ac5a] py-10 xl:py-20 px-5 xl:px-20">
+        <div className="flex tenderlist flex-col  w-full bg-[#00a6ac5a] py-10 xl:py-20 px-5 xl:px-20">
           <div className="space-y-2">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">
               Find Tenders
@@ -408,7 +417,7 @@ const TenderList = () => {
                           setInput(Details.title)
                           setAllKeywords([])
                         }}
-                        className='border-b cursor-pointer hover:border-b-black duration-300' >{Details.title}</h1>
+                          className='border-b cursor-pointer hover:border-b-black duration-300' >{Details.title}</h1>
                       </div>
                     ))
                   }
@@ -422,8 +431,8 @@ const TenderList = () => {
         <div className="bg-[#ddf2f22e] tenderlist px-5 py-10 xl:py-20 xl:px-20">
           <div className="flex flex-wrap ">
             {
-              allTenders.length > 0 ?
-                allTenders.map((Details, index) => (
+              filteredTenders.length > 0 ?
+                filteredTenders.map((Details, index) => (
                   <TenderCard key={index} Data={Details} itemsPerPage={itemsPerPage} setPageNo={setPageNo} pageCount={pageCount} />
                 ))
 

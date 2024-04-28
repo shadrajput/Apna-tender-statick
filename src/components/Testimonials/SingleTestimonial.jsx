@@ -18,10 +18,10 @@ const SingleTestimonial = ({ testimonial }) => {
   }
 
   return (
-    <div className="mx-3">
+    <div className="px-2 lg:mx-3">
     <div className="w-full shadow-testimonial rounded-xl p-10 border bg-white">
 
-      <div className="flex flex-col items-start gap-4 ">
+      <div className="flex flex-col items-start gap-4">
         <div className="h-[70px] w-[70px] overflow-hidden rounded-full">
           <img src={image} alt="" />
         </div>
