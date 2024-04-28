@@ -4,6 +4,9 @@ import { FiSearch } from "react-icons/fi";
 import { CiFolderOn } from "react-icons/ci";
 import { useRouter } from 'next/router';
 import Slider from "react-slick";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+
 
 const Hero = () => {
   const router = useRouter()
@@ -131,12 +134,42 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex flex-col items-center lg:items-start xl:flex-row my-10 w-full ">
-              <div className='items-center flex justify-center lg:justify-start lg:items-start w-44 sm:w-52 '>
-                <img src="images/hero/herouser.png" alt="" className="w-full" />
+            <div className="flex items-center justify-center xl:justify-start lg:items-start my-10 w-full space-x-10">
+              <div className="">
+                <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                  <h1 className="text-3xl sm:text-4xl text-center lg:text-5xl font-semibold text-[#000000] lg:mb-2">
+                    {counterOn &&
+                      <CountUp start={0} end={100} duration={2} delay={0} />
+                    }
+                    +
+                  </h1>
+                  <p className="text-[#000000] text-sm md:text-base text-center">Tenders Available</p>
+                </ScrollTrigger>
               </div>
-              <h1 className="text-center lg:text-start"><span className='font-semibold text-[#00a7ac] text-xl '>5k+</span> People Have Connected With Us!</h1>
+              <div className="">
+                <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                  <h1 className="text-3xl sm:text-4xl text-center lg:text-5xl font-semibold text-[#000000] lg:mb-2">
+                    {counterOn &&
+                      <CountUp start={0} end={100} duration={2} delay={0} />
+                    }
+                    +
+                  </h1>
+                  <p className="text-[#000000] text-sm md:text-base text-center">Daily Post</p>
+                </ScrollTrigger>
+              </div>
+              <div className="">
+                <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+                  <h1 className="text-3xl sm:text-4xl text-center lg:text-5xl font-semibold text-[#000000] lg:mb-2">
+                    {counterOn &&
+                      <CountUp start={0} end={100} duration={2} delay={0} />
+                    }
+                    +
+                  </h1>
+                  <p className="text-[#000000] text-sm md:text-base text-center">Visitor</p>
+                </ScrollTrigger>
+              </div>
             </div>
+
           </div>
 
           <div className="w-full lg:w-[50%] p-5 h-auto transition-transform duration-500 transform translate-x-0">
