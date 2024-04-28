@@ -20,6 +20,9 @@ import { useGetAllNotificationQuery, useReadNotificationMutation } from '@/servi
 import { MdSearchOff, MdEmail } from "react-icons/md";
 import { IoCallSharp } from "react-icons/io5";
 import { useRouter } from 'next/router';
+import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const Header = () => {
   const dispatch = useDispatch();
