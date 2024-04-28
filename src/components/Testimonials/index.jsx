@@ -82,8 +82,8 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="hero py-10 px-5 xl:py-20 xl:px-20 ">
-
+    <section className="hero py-10  xl:py-20 xl:px-20 ">
+    
       <div className="flex flex-col md:flex-row items-start px-5 ">
 
         <div className="w-full xl:w-1/2 space-y-3 flex flex-col items-center justify-center lg:items-start lg:justify-start">
@@ -95,9 +95,9 @@ const Testimonials = () => {
           <p className="text-sm">It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.
             It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.</p>
           <div className="flex items-center space-x-5">
-            <img src="images/testimonials/instagram-logo-1494D6FE63-seeklogo.com.png" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
-            <img src="images/testimonials/facebook.jpg" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
-            <img src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+            <img  src="images/testimonials/instagram-logo-1494D6FE63-seeklogo.com.png" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+            <img  src="images/testimonials/facebook.jpg" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+            <img  src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
           </div>
         </div>
 
