@@ -476,11 +476,11 @@ const Header = () => {
             ) : (
               <div className="lg:flex items-center space-x-3 hidden ">
                 <button onClick={() => setInquiry(true)}
-                  className="rounded-md px-5 xl:px-10  text-white font-semibold border-[#00a7ac] py-2 bg-[#00a7ac] border-2 hover:bg-transparent hover:border-[#00a7ac] hover:text-[#00a7ac] duration-500">
+                  className="rounded-md px-5 xl:px-10  text-white font-semibold border-[#00a7ac] py-[10px] bg-[#00a7ac] border-2 hover:bg-transparent hover:border-[#00a7ac] hover:text-[#00a7ac] duration-500">
                   Get a Consultation
                 </button>
                 <Link href="/auth/signin">
-                  <button className="border hover:text-[#00a7ac] rounded-md px-10 py-2 w-full font-medium">
+                  <button className="border hover:text-[#00a7ac] rounded-md px-10 py-[10px] w-full font-medium">
                     Login
                   </button>
                 </Link>

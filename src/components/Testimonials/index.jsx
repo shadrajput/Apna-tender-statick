@@ -83,36 +83,36 @@ const Testimonials = () => {
 
   return (
     <section className="hero py-10 px-5 xl:py-20 xl:px-20 ">
-    
-    <div className="flex flex-col md:flex-row items-start ">
 
-      <div className="w-full xl:w-1/2 space-y-3">
-        <h2 className="text-3xl xl:text-[40px] leading-tight font-bold font">What <span className="text-[#00a7ac]">Business owners</span> <br /> talking about us</h2>
-        <img src="images/testimonials/googlereview.jpg" alt="" className="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 xl:w-[30%]" />
+      <div className="flex flex-col md:flex-row items-start px-5 ">
+
+        <div className="w-full xl:w-1/2 space-y-3 flex flex-col items-center justify-center">
+          <h2 className="text-3xl w-full xl:text-[40px] leading-tight font-bold font text-center lg:text-left">What <span className="text-[#00a7ac]">Business owners</span> <br /> talking about us</h2>
+          <img src="images/testimonials/googlereview.jpg" alt="" className="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 xl:w-[30%] items-center" />
+        </div>
+
+        <div className="w-full hidden lg:block xl:w-1/2 space-y-5 xl:space-y-10 mt-3">
+          <p className="text-sm">It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.
+            It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.</p>
+          <div className="flex items-center space-x-5">
+            <img src="images/testimonials/instagram-logo-1494D6FE63-seeklogo.com.png" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+            <img src="images/testimonials/facebook.jpg" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+            <img src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+          </div>
+        </div>
+
       </div>
 
-      <div className="w-full xl:w-1/2 space-y-5 xl:space-y-10 mt-3">
-        <p className="text-sm">It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.
-          It has been proven by our users that our platform is very helpful for those who have trouble managing tasks.</p>
-        <div className="flex items-center space-x-5">
-          <img  src="images/testimonials/instagram-logo-1494D6FE63-seeklogo.com.png" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
-          <img  src="images/testimonials/facebook.jpg" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
-          <img  src="images/testimonials/circle-linkedin-512.webp" alt="" className="w-7 xl:w-8 cursor-pointer hover:scale-105 duration-300" />
+      <div className="mt-10 xl:mt-20">
+        <div className="">
+          <Slider {...settings}>
+            {testimonialData.map((testimonial, index) => (
+              <SingleTestimonial key={index} testimonial={testimonial} />
+            ))}
+          </Slider>
         </div>
       </div>
-
-    </div>
-
-    <div className="mt-10 xl:mt-20">
-      <div className="">
-        <Slider {...settings}>
-          {testimonialData.map((testimonial, index) => (
-            <SingleTestimonial key={index} testimonial={testimonial} />
-          ))}
-        </Slider>
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 

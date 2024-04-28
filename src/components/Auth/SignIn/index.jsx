@@ -76,7 +76,7 @@ const Signin = () => {
     <section className="bg-[#f8f8f8] py-14  lg:py-20">
       <div className="container">
         <div className="-mx-4 flex flex-wrap">
-          <div className="w-full px-4">
+          <div className="w-full">
             <div
               className="mx-auto max-w-[525px] py-10 pb-14 px-10 border border-[#00a6ac3f] overflow-hidden rounded-lg bg-white text-center"
               data-wow-delay=".15s"
