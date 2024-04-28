@@ -18,8 +18,8 @@ import { Tooltip } from '@nextui-org/react';
 import moment from 'moment';
 import { BiLogoGmail } from "react-icons/bi";
 
-const TenderCard = ({ Data, resultId, itemsPerPage, setPageNo, pageCount }) => {
-    // console.log(Data.dataValues.document_url, "Data")
+const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCount }) => {
+    console.log(isRecent)
     const { id, apna_tender_id, description, estimated_value, state, title, closing_date, opening_date, department, isBookmarked, isApplied, is_recent } = Data;
 
     let tender_id = id
@@ -96,7 +96,7 @@ const TenderCard = ({ Data, resultId, itemsPerPage, setPageNo, pageCount }) => {
             <div className="w-full pt-5 relative pb-5 px-5 lg:px-7 flex flex-col bg-white justify-between mb-8 border rounded-3xl shadow-md shadow-[#00a6ac0f] hover:shadow-none hover:border-[#00a7ac] duration-300">
 
                 {
-                    is_recent === true ?
+                    isRecent === true ?
                         <div className="absolute">
                             <img src="images/new.png" alt="" className=" w-[90px] xl:w-[100px] -translate-x-9 -translate-y-9 xl:-translate-x-11 xl:-translate-y-10" />
                         </div>

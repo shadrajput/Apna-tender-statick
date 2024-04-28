@@ -292,7 +292,6 @@ const TenderList = () => {
   const [finalsearch, setFinalSearch] = React.useState("");
   const [finalfilter, setFinalFilter] = React.useState("");
   const [input , setInput] = React.useState(router.query.search ? router.query.search : "")
- 
   const Keywords = useGetTenderByKeywordQuery({
     search: search,
   });
@@ -310,7 +309,7 @@ const TenderList = () => {
     filter: finalfilter,
   });
 
-
+  
   const handleUserSearch = (e) => {
     setInput(e.target.value)
 
