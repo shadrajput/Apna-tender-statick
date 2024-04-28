@@ -12,7 +12,7 @@ const CallToAction = () => {
         </div>
         <span className="text-white text-xl xl:text-2xl font-bold">Call Us 24/7 Live</span>
       </div>
-      <h1 className="text-white text-2xl xl:text-3xl font-bold uppercase">+91 1234567890</h1>
+      <h1 className="text-white text-2xl xl:text-3xl font-bold uppercase">+91 9723747443</h1>
       <p className="text-white text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus porro dolor, corporis voluptates repudiandae doloremque saepe eius corrupti, iure aperiam quas sapiente consectetur veniam quo vero hic! Ipsa, minima.</p>
       <p className="text-white text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae necessitatibus porro dolor, corporis voluptates repudiandae doloremque saepe eius corrupti.</p>
       <div className="border-2 border-white p-2 flex items-center z-[9999] rounded-md mt-5">
