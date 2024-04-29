@@ -82,7 +82,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="hero py-10  xl:py-20 xl:px-20 ">
+    <section className="hero py-10  xl:py-20 xl:px-20 overflow-hidden">
     
       <div className="flex flex-col md:flex-row items-start px-5 ">
 
@@ -102,7 +102,7 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div className="mt-10 xl:mt-20">
+      <div className="mt-10 xl:mt-20 overflow-hidden">
           <Slider {...settings}>
             {testimonialData.map((testimonial, index) => (
               <SingleTestimonial key={index} testimonial={testimonial} />
