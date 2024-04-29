@@ -113,8 +113,8 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
 
     const handlenavigate = () => {
         router.push({
-          pathname: '/tender-details',
-          query: { data : Data }
+          pathname: `/tender-details/${tender_id}`,
+        //   query: { filter: "department" }
         }).then(() => {
           // console.log('Navigated to other page with value:', value);
         });

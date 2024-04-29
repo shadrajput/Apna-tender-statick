@@ -34,10 +34,10 @@ const TenderDetails = () => {
   }, [isLoading, isError, data])
   let tender_id = id
 
-  const city = tenderdetails.location;
-  if (!city) {
-    return null; // Handle case where city is undefined or empty
-  }
+  const city = 'hjhjjh';
+  // if (!city) {
+  //   return null; // Handle case where city is undefined or empty
+  // }
   const firstPart = city.slice(0, Math.ceil(city.length / 2) - 3);
   const lastPart = city.slice(Math.ceil(city.length / 2) + 2);
 
@@ -202,12 +202,12 @@ const TenderDetails = () => {
           <div className="w-full space-y-5 sm:space-y-8 lg:space-y-10 xl:space-y-16">
             <div className='grid grid-cols-3 gap-3 xl:gap-10 w-full'>
               <div className=''>
-                <a href={tenderdetails.dataValues.document_url} className="bg-red-500 w-full">
+                {/* <a href={tenderdetails.dataValues.document_url} className="bg-red-500 w-full"> */}
                   <button
                     className="relative h-16 w-full overflow-hidden border border-[#00a7ac] bg-[#00a7ac] text-white rounded-md transition-all duration-200 before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-500 before:ease-out hover:text-[#00a7ac] hover:shadow-[#00a7ac] hover:before:h-40 hover:before:w-full hover:before:opacity-100">
                     <span className="relative text-sm z-10 md:text-base">Download Document</span>
                   </button>
-                </a>
+                {/* </a> */}
               </div>
               <div>
                 <ReactToPrint
