@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 
 const TenderDetails = () => {
   const router = useRouter();
+  // console.log(router.query.data)
   const id = router.query.tenderId
   const [tenderdetails, setTenderDetails] = useState({});
   const [inquiry, setInquiry] = useState(false);
@@ -26,6 +27,16 @@ const TenderDetails = () => {
   const [addInterest, { ...addingInterest }] = useAddInterestMutation()
   const [addBookMark, { ...addingbookmark }] = useAddBookmarkMutation()
   const { token } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    // Parse the data object from the query parameter
+    const dataString = router.query.data;
+    if (dataString) {
+      const dataObject = JSON.parse(dataString);
+      // Use the data object as needed
+      setTenderDetails(dataObject)
+    }
+  }, [router.query]);
 
   useEffect(() => {
     if (data) {
@@ -83,6 +94,11 @@ const TenderDetails = () => {
     setInquiry(true)
   }
 
+  console.log(tenderdetails)
+
+
+
+
   return (
     <section ref={printRef} id="" className="py-5 lg:pb-20 px-5 xl:px-14 bg-[#00a6ac11]">
       <div className='p-5 lg:p-7 xl:px-10 rounded-md shadow-xl bg-white'>
@@ -107,15 +123,15 @@ const TenderDetails = () => {
             <div className="lg:w-[80%] flex flex-col lg:flex-row">
               <div className="lg:w-[70%]" >
                 <h3 className="font-semibold text-2xl w-fit text-[#000000] hover:text-[#00a7ac] duration-300 mb-4">
-                  {tenderdetails.title}
+                  {tenderdetails.productCategory}
                 </h3>
-                <p className="text-gray-600 text-sm md:text-base ">{tenderdetails.description}</p>
+                <p className="text-gray-600 text-sm md:text-base ">{tenderdetails.title}</p>
                 <div className="flex items-center space-x-3 mt-4 bg-red-100 p-2 xl:w-[45%] justify-center rounded-md">
                   <div className='flex flex-col items-center sm:flex-row sm:space-x-3 lg:items-start'>
                     <FaRegCalendar className="text-red-500" />
                     <span className="font-medium text-sm text-red-500">Closing Date : </span>
                   </div>
-                  <h1 className="text-sm font-medium text-red-500">{moment.utc(tenderdetails.closing_date).format("DD-MM-YYYY hh:mm A")}</h1>
+                  <h1 className="text-sm font-medium text-red-500">{moment.utc(tenderdetails.bidClosingDate).format("DD-MM-YYYY hh:mm A")}</h1>
                 </div>
               </div>
 
@@ -126,22 +142,22 @@ const TenderDetails = () => {
                 <div className="flex items-center w-full space-x-3">
                   <FaRegCalendar className="text-xl text-[#00a7ac]" />
                   <span className="text-sm">Opening Date : </span>
-                  <h1 className="text-[#000000] text-sm font-medium">{moment.utc(tenderdetails.opening_date).format("DD-MM-YYYY hh:mm A")}</h1>
+                  <h1 className="text-[#000000] text-sm font-medium">{moment.utc(tenderdetails.tenderOpeningDate).format("DD-MM-YYYY hh:mm A")}</h1>
                 </div>
                 <div className="flex items-center w-full space-x-3">
                   <FiMapPin className="text-lg text-[#00a7ac]" />
                   <span className="text-sm">Location : </span>
-                  <h1 className="text-[#000000] text-sm font-medium">{tenderdetails.location}</h1>
+                  <h1 className="text-[#000000] text-sm font-medium">{tenderdetails.address}</h1>
                 </div>
                 <div className="flex items-center w-full space-x-3">
                   <FaIndianRupeeSign className="text-xl text-[#00a7ac]" />
                   <span className="text-sm">Contract Value : </span>
-                  <h1 className="text-[#000000] text-sm font-medium">{tenderdetails.estimated_value}</h1>
+                  <h1 className="text-[#000000] text-sm font-medium">{tenderdetails.tenderValue}</h1>
                 </div>
                 <div className="flex items-center w-full space-x-3">
                   <BsFillBriefcaseFill className="text-lg text-[#00a7ac]" />
                   <span className="text-sm">Department : </span>
-                  <h1 className="text-[#000000] text-sm font-medium">{tenderdetails.department}</h1>
+                  <h1 className="text-[#000000] text-sm font-medium">{tenderdetails.organigationChain}</h1>
                 </div>
               </div>
             </div>
@@ -255,11 +271,11 @@ const TenderDetails = () => {
                 <h1 className="text-xl text-[#00a7ac] font-semibold">Key Value</h1>
                 <div className="flex items-center space-x-10 border-b w-full pb-2">
                   <h2 className="font-medium">EMD : </h2>
-                  <span className="text-[#3e3e3e]">INR {tenderdetails.emd_amount} /-</span>
+                  <span className="text-[#3e3e3e]">INR {tenderdetails.EDMdetails?.amount} /-</span>
                 </div>
                 <div className="flex items-center space-x-10 border-b w-full pb-2">
                   <h2 className="font-medium">Value : </h2>
-                  <span className="text-[#3e3e3e]">{tenderdetails.estimated_value ? "INR" : ""} {tenderdetails.estimated_value}</span>
+                  <span className="text-[#3e3e3e]">{tenderdetails.tenderValue ? "INR" : ""} {tenderdetails.tenderValue}</span>
                 </div>
               </div>
             </div>
@@ -269,22 +285,22 @@ const TenderDetails = () => {
                 <h1 className="text-xl text-[#00a7ac] font-semibold">Key Location</h1>
                 <div className="flex items-center space-x-10 border-b w-full pb-2">
                   <h2 className="font-medium">State : </h2>
-                  <span className="text-[#3e3e3e]">{tenderdetails.state}</span>
+                  <span className="text-[#3e3e3e]">{tenderdetails.address}</span>
                 </div>
                 <div className="flex items-center space-x-10 border-b w-full pb-2">
                   <h2 className="font-medium">City : </h2>
-                  <span className="text-[#3e3e3e]">{hiddenCity}</span>
+                  <span className="text-[#3e3e3e]">{tenderdetails.address}</span>
                 </div>
               </div>
               <div className="space-y-5 w-full">
                 <h1 className="text-xl text-[#00a7ac] font-semibold">Industry</h1>
                 <div className="flex items-center space-x-10 border-b w-full pb-2">
                   <h2 className="font-medium">Sector : </h2>
-                  <span className="text-[#3e3e3e]">{tenderdetails.department}</span>
+                  <span className="text-[#3e3e3e]">{tenderdetails.subCategory}</span>
                 </div>
                 <div className="flex items-center space-x-10 border-b w-full pb-2">
                   <h2 className="font-medium">Department : </h2>
-                  <span className="text-[#3e3e3e]">{tenderdetails.department}</span>
+                  <span className="text-[#3e3e3e]">{tenderdetails.organigationChain}</span>
                 </div>
               </div>
             </div>
