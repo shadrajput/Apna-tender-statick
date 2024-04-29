@@ -17,20 +17,22 @@ import Link from "next/link";
 import { Tooltip } from '@nextui-org/react';
 import moment from 'moment';
 import { BiLogoGmail } from "react-icons/bi";
+import { useRouter } from 'next/router';
+
 
 const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCount }) => {
+    const { tenderId, apna_tender_id, title, tenderValue, address, productCategory, bidClosingDate, tenderOpeningDate, organigationChain, isBookmarked, isApplied, is_recent } = Data;
+    // console.log(Data)
+    let tender_id = tenderId
 
-    const { id, apna_tender_id, description, estimated_value, state, title, closing_date, opening_date, department, isBookmarked, isApplied, is_recent } = Data;
-
-    let tender_id = id
-
+    const router = useRouter()
     const [inquiry, setInquiry] = useState(false);
     const { token } = useSelector((state) => state.user);
     const [addBookMark, { ...addingbookmark }] = useAddBookmarkMutation()
     const [addInterest, { ...addingInterest }] = useAddInterestMutation()
     const [removeAppliedTender, { ...removingAppliedTender }] = useRemoveAppliedTenderMutation()
-    const isopening = opening_date;
-    const isclosing = closing_date;
+    const isopening = tenderOpeningDate;
+    const isclosing = bidClosingDate;
     const Opening = new Date(isopening);
     const Closing = new Date(isclosing);
 
@@ -39,10 +41,10 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
     const openingdate = Opening.toLocaleString('en-US', options);
     const closingdate = Closing.toLocaleString('en-US', options);
 
-    function subtractDates(closing_date) {
+    function subtractDates(bidClosingDate) {
         // Convert the date strings to Date objects
         const d1 = new Date();
-        const d2 = new Date(closing_date);
+        const d2 = new Date(bidClosingDate);
 
         // Calculate the difference in milliseconds
         const diffInMs = Math.abs(d1 - d2);
@@ -53,6 +55,24 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
         return diffInDays;
     }
 
+    function generateID() {
+        // Generate a random 4-digit number
+        const randomNum = Math.floor(1000 + Math.random() * 9000);
+
+        // Concatenate the ID components using string interpolation
+        const id = `ATI24${randomNum}`;
+
+        return id;
+    }
+
+
+    const extractState = () => {
+        const addressParts = address.split(', ');
+        return addressParts[addressParts.length - 1];
+    };
+
+    const state = extractState();
+    const limitedText = organigationChain.substring(0, 15) + '***';
 
     // AppliedTender Function
     const AppliedTender = async (tender_id) => {
@@ -91,6 +111,15 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
         setInquiry(true)
     }
 
+    const handlenavigate = () => {
+        router.push({
+          pathname: '/tender-details',
+          query: { data : Data }
+        }).then(() => {
+          // console.log('Navigated to other page with value:', value);
+        });
+      };
+
     return (
         <>
             <div className="w-full pt-5 relative pb-5 px-5 lg:px-7 flex flex-col bg-white justify-between mb-8 border rounded-3xl shadow-md shadow-[#00a6ac0f] hover:shadow-none hover:border-[#00a7ac] duration-300">
@@ -105,7 +134,7 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
                 }
 
                 <div className="flex items-center justify-between w-full">
-                    <p className="text-[#00a7ac] font-medium">#ATI : {apna_tender_id}</p>
+                    <p className="text-[#00a7ac] font-medium">#ATI : {generateID()}</p>
                     {
                         resultId ?
                             <div
@@ -176,26 +205,30 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
 
                 <div className="flex flex-col xl:flex-row items-center justify-between w-full lg:space-y-3 ">
                     <div className="w-full xl:w-[80%] flex flex-col lg:flex-row ">
-                        <div className="w-full xl:w-[70%]" >
-                            <h3 className="font-semibold text-xl text-[#000000] hover:text-[#00a7ac] duration-300">
-                                {title}
-                            </h3>
-                            <h3 className="text-gray-600 text-sm lg:text-base mt-1">{description}</h3>
-                            {
-                                resultId ?
-                                    <div className="flex mt-3 items-start space-x-3 bg-[#00a6ac1c] px-2 py-2 w-[45%] justify-start rounded-md">
-                                        <span className="font-medium text-sm text-[#000000]">Tender Result Bidder : </span>
-                                        <h1 className="text-sm font-medium text-[#000000]">Wellbenix</h1>
-                                    </div>
-                                    :
-                                    <div className="flex mt-3 items-start lg:items-center space-x-3 bg-red-100 p-2 w-full xl:w-[45%] justify-center rounded-md">
-                                        <div className="flex items-center space-x-1">
-                                            <FaRegCalendar className="text-red-500" />
-                                            <span className="font-medium text-sm text-red-500">Closing Date : </span>
+                        <div className="w-full lg:justify-between xl:w-[70%]" >
+                            <div>
+                                <h3 className="font-semibold text-xl text-[#000000] hover:text-[#00a7ac] duration-300">
+                                    {productCategory}
+                                </h3>
+                                <h3 className="text-gray-600 text-sm lg:text-base mt-1">{title}</h3>
+                            </div>
+                            <div className="flex justify-start mt">
+                                {
+                                    resultId ?
+                                        <div className="flex mt-3 items-start space-x-3 bg-[#00a6ac1c] px-2 py-2 w-[45%] justify-start rounded-md">
+                                            <span className="font-medium text-sm text-[#000000]">Tender Result Bidder : </span>
+                                            <h1 className="text-sm font-medium text-[#000000]">Wellbenix</h1>
                                         </div>
-                                        <h1 className="text-sm font-medium text-red-500">{moment.utc(closing_date).format("DD-MM-YYYY hh:mm A")}</h1>
-                                    </div>
-                            }
+                                        :
+                                        <div className="flex mt-3 items-start lg:items-center space-x-3 bg-red-100 p-2 w-full xl:w-[45%] justify-center rounded-md">
+                                            <div className="flex items-center space-x-1">
+                                                <FaRegCalendar className="text-red-500" />
+                                                <span className="font-medium text-sm text-red-500">Closing Date : </span>
+                                            </div>
+                                            <h1 className="text-sm font-medium text-red-500">{moment.utc(bidClosingDate).format("DD-MM-YYYY hh:mm A")}</h1>
+                                        </div>
+                                }
+                            </div>
                         </div>
 
                         <div className="bg-[#00a7ac] w-[1px] mx-7">
@@ -205,7 +238,7 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
                             <div className="flex items-center w-full space-x-3">
                                 <FaRegCalendar className="text-lg text-[#00a7ac]" />
                                 <span className="text-sm">Opening Date : </span>
-                                <h1 className="text-[#000000] text-sm font-medium">{moment.utc(opening_date).format("DD-MM-YYYY hh:mm A")}</h1>
+                                <h1 className="text-[#000000] text-sm font-medium">{moment.utc(tenderOpeningDate).format("DD-MM-YYYY hh:mm A")}</h1>
                             </div>
                             <div className="flex items-center w-full space-x-3">
                                 <FiMapPin className="text-lg text-[#00a7ac]" />
@@ -215,12 +248,12 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
                             <div className="flex items-center w-full space-x-3">
                                 <GiMoneyStack className="text-xl text-[#00a7ac]" />
                                 <span className="text-sm">Estimated : </span>
-                                <h1 className="text-[#000000] text-sm font-medium">{estimated_value}</h1>
+                                <h1 className="text-[#000000] text-sm font-medium">{tenderValue}</h1>
                             </div>
                             <div className="flex items-center w-full space-x-3">
                                 <BsFillBriefcaseFill className="text-lg text-[#00a7ac]" />
                                 <span className="text-sm">Department : </span>
-                                <h1 className="text-[#000000] text-sm font-medium">{department}</h1>
+                                <h1 className="text-[#000000] text-sm font-medium">{limitedText}</h1>
                             </div>
                         </div>
                     </div>
@@ -236,6 +269,7 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
                                             resultId ?
                                                 (
                                                     <Link
+
                                                         className=""
                                                         href={`/result-details/${resultId}`} >
                                                         <button className='hover:before:bg-redborder-red-500 rounded-md relative h-[40px] w-40 overflow-hidden border border-[#00a7ac] bg-white px-3 text-[#00a7ac] transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-[#00a7ac] before:transition-all before:duration-500 hover:text-white hover:before:left-0 hover:before:w-full'>
@@ -284,20 +318,20 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
                                         ?
                                         null
                                         :
-                                        (new Date() >= new Date(opening_date)) && (new Date() <= new Date(closing_date))
+                                        (new Date() >= new Date(tenderOpeningDate)) && (new Date() <= new Date(bidClosingDate))
                                             ?
                                             <h1 className="text-[13px] font-medium text-red-500 xl:text-end pr-3">
-                                                {subtractDates(closing_date)}
-                                                {subtractDates(closing_date) > 1 ? ` Days Left` : ' Day Left'}
+                                                {subtractDates(bidClosingDate)}
+                                                {subtractDates(bidClosingDate) > 1 ? ` Days Left` : ' Day Left'}
                                             </h1>
                                             :
-                                            new Date() < new Date(opening_date)
+                                            new Date() < new Date(tenderOpeningDate)
                                                 ?
                                                 <h1 className="text-[13px] font-medium text-yellow-500 text-end pr-3">
                                                     Coming soon
                                                 </h1>
                                                 :
-                                                new Date() > new Date(closing_date)
+                                                new Date() > new Date(bidClosingDate)
                                                     ?
                                                     <h1 className="text-[13px] font-medium text-red-500 text-end pr-3">
                                                         Expired
@@ -310,27 +344,17 @@ const TenderCard = ({ Data, resultId, isRecent, itemsPerPage, setPageNo, pageCou
                         </div>
 
                         <div>
-                            {
-                                resultId ?
-                                    null
-                                    :
-                                    <Link
-                                        className=""
-                                        href={`/tender-details/${tender_id}`}>
-                                        <div className="flex items-center xl:justify-end xl:mr-5 group xl:pt-5 text-sm space-x-2">
-                                            <span
-                                                // onClick={() => {
-                                                //     token?.length > 2 ? "" : RequestTender()
-                                                // }}
-                                                className="underline group-hover:text-[#00a7ac] group-hover:scale-105 duration-300">View More</span>
-                                            <MdArrowRightAlt
-                                                // onClick={() => {
-                                                //     token?.length > 2 ? "" : RequestTender()
-                                                // }}
-                                                className="text-2xl mt-1 group-hover:text-[#00a7ac] group-hover:translate-x-1 duration-300" />
-                                        </div>
-                                    </Link>
-                            }
+                            {/* <Link
+                                className=""
+                                href={{ pathname: '/tender-details', query: { data: Data } }}> */}
+                                <div onClick={() => handlenavigate()}
+                                className="flex items-center xl:justify-end xl:mr-5 group xl:pt-5 cursor-pointer text-sm space-x-2">
+                                    <span
+                                        className="underline group-hover:text-[#00a7ac] group-hover:scale-105 duration-300">View More</span>
+                                    <MdArrowRightAlt
+                                        className="text-2xl mt-1 group-hover:text-[#00a7ac] group-hover:translate-x-1 duration-300" />
+                                </div>
+                            {/* </Link> */}
                         </div>
 
                     </div>

@@ -349,15 +349,22 @@ const Header = () => {
               </div>
 
               <div className="lg:hidden mt-10 flex items-center justify-center space-x-5">
-                <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
-                  <FaInstagram className="text-white text-lg" />
-                </div>
-                <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
-                  <FaLinkedinIn className="text-white text-lg" />
-                </div>
+                <a href="https://www.instagram.com/apnatender/">
+                  <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
+                    <FaInstagram className="text-white text-lg" />
+                  </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/asquare-marketing-0b91122a0/">
+                  <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
+                    <FaLinkedinIn className="text-white text-lg" />
+                  </div>
+                </a>
+
                 <div className="bg-[#00a7ac] rounded-full w-9 h-9 flex justify-center items-center ">
                   <FaFacebookSquare className="text-white text-lg" />
                 </div>
+
               </div>
             </nav>
           </div>
@@ -488,8 +495,8 @@ const Header = () => {
             )}
           </div>
 
-        </div>
-      </header>
+        </div >
+      </header >
 
       <InquiryTenderModel
         showModal={inquiry}
