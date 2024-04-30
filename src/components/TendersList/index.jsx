@@ -8430,7 +8430,7 @@ const TenderList = () => {
 
   // Filter the tender list based on the search query
   const filteredTenders = allTenders.filter((tender) =>
-    tender.productCategory.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    tender.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     tender.organigationChain.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
